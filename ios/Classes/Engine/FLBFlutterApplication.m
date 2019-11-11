@@ -185,6 +185,7 @@
         [self.platform open:url
                   urlParams:urlParams
                        exts:exts
+                      reult:resultCallback
                  completion:completion];
     }
 }
