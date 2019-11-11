@@ -103,10 +103,12 @@ public class FlutterSplashView extends FrameLayout {
 
     @Override
     protected void onRestoreInstanceState(Parcelable state) {
-        SavedState savedState = (SavedState) state;
-        super.onRestoreInstanceState(savedState.getSuperState());
-        previousCompletedSplashIsolate = savedState.previousCompletedSplashIsolate;
-        splashScreenState = savedState.splashScreenState;
+        if (state instanceof SavedState){
+            SavedState savedState = (SavedState) state;
+            super.onRestoreInstanceState(savedState.getSuperState());
+            previousCompletedSplashIsolate = savedState.previousCompletedSplashIsolate;
+            splashScreenState = savedState.splashScreenState;
+        } else super.onRestoreInstanceState(state);
     }
 
     /**
